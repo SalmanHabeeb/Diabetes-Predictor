@@ -29,10 +29,10 @@ def predict():
             var_6 = float(request.form['var_6'])
             
             entries = [var_1, var_2, var_3, var_4, var_5, var_6]
-            entries = np.array(entries)
             scaling_df = pd.read_csv("assets/scaling_data.csv")
             for i, entry in enumerate(entries):
                 entries[i] = (entry - scaling_df.iloc[0, i + 1])/scaling_df.iloc[1, i + 1]
+            entries = np.array(entries)
             entries = entries.reshape(1, -1)
             with open("assets/model.dat", "rb") as f:
                 lr_model = pickle.load(f)
