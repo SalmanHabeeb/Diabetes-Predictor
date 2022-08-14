@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Homepage</title>
+
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+        <center><h1>Diabetes Prediction</h1></center>
+        <form method="POST" action="/predict">
+            <div class="form-group">
+                <center><label for="var_1"><p class="font-weight-bold">No. of pregnancies</p></label></center>
+                <center><input type="text" name="var_1"></center>
+            </div>
+            <div class="form-group">
+                <center><label for="var_2"><p class="font-weight-bold">Glucose Level (in mg/dl)</p></label></center>
+                <center><input type="text" name="var_2"></center>
+            </div>
+            <div class="form-group">
+                <center><label for="var_3"><p class="font-weight-bold">Insulin</p></label></center>
+                <center><input type="text" name="var_3"></center>
+            </div>
+            <div class="form-group">
+                <center><label for="var_4"><p class="font-weight-bold">BMI</p></label></center>
+                <center><input type="text" name="var_4"></center>
+            </div>
+            <div class="form-group">
+                <center><label for="var_5"><p class=" font-weight-bold">Diabetes Pedigree Function</p></label></center>
+                <center><input type="text" name="var_5"></center>
+            </div>
+            <div class="form-group">
+                <center><label for="var_6"><p class=" font-weight-bold">Age</p></label></center>
+                <center><input type="text" name="var_6"></center>
+            </div>
+            <center><button class = "pred-button" id = "predictor" type = "submit">
+                <h1>Predict</h1>
+            </button></center>
+        </form>
+
+        <p><center>Test Result for Diabetes : {{prediction}}</center></p>
+    </body>
+</html>
