@@ -1,16 +1,7 @@
-# # # This file is part of Diabetes-Predictor.
-
-# # # Diabetes-Predictor is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-# # # Diabetes-Predictor is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-# # # You should have received a copy of the GNU General Public License along with Foobar. If not, see <https://www.gnu.org/licenses/>.
-
-
+from email import message
 import pandas as pd
 import numpy as np
 import pickle
-from sklearn.linear_model import LogisticRegression
 from flask import Flask, render_template, request
 
 app=Flask(__name__, template_folder = "assets/templates")
@@ -23,26 +14,28 @@ def home():
 def predict():
     
     if request.method == 'POST':
-        print(request.form.get('var_1'))
-        print(request.form.get('var_2'))
-        print(request.form.get('var_3'))
-        print(request.form.get('var_4'))
-        print(request.form.get('var_5'))
-        print(request.form.get('var_6'))
+        print(request.form.get('no_of_pregnancies'))
+        print(request.form.get('glucose_level'))
+        print(request.form.get('insulin'))
+        print(request.form.get('bmi'))
+        print(request.form.get('dpf'))
+        print(request.form.get('age'))
         
         try:
-            var_1 = float(request.form['var_1'])
-            var_2 = float(request.form['var_2'])
-            var_3 = float(request.form['var_3'])
-            var_4 = float(request.form['var_4'])
-            var_5 = float(request.form['var_5'])
-            var_6 = float(request.form['var_6'])
+            no_of_pregnancies = float(request.form['no_of_pregnancies'])
+            glucose_level = float(request.form['glucose_level'])
+            insulin = float(request.form['insulin'])
+            bmi = float(request.form['bmi'])
+            dpf = float(request.form['dpf'])
+            age = float(request.form['age'])
             
-            entries = [var_1, var_2, var_3, var_4, var_5, var_6]
+            insulin = np.log1p(insulin)
+            
+            entries = [no_of_pregnancies, glucose_level, insulin, bmi, dpf, age]
+            entries = np.array(entries)
             scaling_df = pd.read_csv("assets/scaling_data.csv")
             for i, entry in enumerate(entries):
                 entries[i] = (entry - scaling_df.iloc[0, i + 1])/scaling_df.iloc[1, i + 1]
-            entries = np.array(entries)
             entries = entries.reshape(1, -1)
             with open("assets/model.dat", "rb") as f:
                 lr_model = pickle.load(f)
@@ -53,7 +46,7 @@ def predict():
                 model_prediction = "Negative (-ve)"
 
         except ValueError:
-            return "Please Enter valid values"
+            return render_template('index.html', message = "Please enter numeric values only")
 
     return render_template('predict.html', prediction = model_prediction)
 
