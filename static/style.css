@@ -1,0 +1,54 @@
+/* form {
+    background-color: red;
+    width: 40vw;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    align-content: center;
+} */
+body {
+    text-align: center;
+}
+
+
+form {
+    display: inline-block;
+    background-color: #e1fd41;
+    border: 10px solid #d9ff00;
+    border-style: groove;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: auto;
+    padding: 20px;
+    padding-top: 50px;
+    width: 40vw;
+    text-align: right;
+}
+
+.label {
+    text-align: flex-start;
+    align-content: flex-start;
+}
+
+.input {
+    align-self: flex-end;
+}
+
+.form-group {
+    padding: 10px;
+    padding-right: 80px;
+}
+
+.hide-group {
+    display: none;
+}
+
+.button {
+    padding-top: 25px;
+}
+
+.pred-button {
+    width: 120px;
+    padding: 2px;
+    vertical-align: bottom;
+}
