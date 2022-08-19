@@ -6,7 +6,7 @@
 
 The app and the model used in this project are for educational purposes only and are not intended to provide medical advice. For any medical issues, consult a doctor.
 
-## Deployment
+## Application
 
 The model to test for diabetes is deployed at [Diabetes Predictor App](https://diabetes-predictor-137.herokuapp.com/)
 
