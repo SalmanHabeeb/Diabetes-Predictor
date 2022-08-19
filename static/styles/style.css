@@ -88,11 +88,11 @@ form {
         display: flex;
         align-items: center;
         font-size: 1.125rem;
-        margin-bottom: 0.5rem;
+        /*margin-bottom: 0.5rem;*/
     }
 
     #radio-btn, #check-box {
-        margin-right: 0.5rem;
+        /*margin-right: 0.5rem;*/
         min-height: 1.2rem;
         min-width: 1.2rem;
     }
