@@ -67,7 +67,7 @@ form {
     vertical-align: bottom;
 }
 
-@media(max-width = 1024px) {
+@media(max-width = 800px) {
     body {
         align-items: center;
     }
@@ -81,6 +81,7 @@ form {
         box-sizing: border-box;
         height: auto;
         padding: 20px;
+        width: 90vw;
     }
 
     .label {
