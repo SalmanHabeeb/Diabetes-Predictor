@@ -80,7 +80,7 @@ form {
         border-radius: 20px;
         box-sizing: border-box;
         height: auto;
-        padding: 20px;
+        padding: 3vw;
         width: 90vw;
     }
 
@@ -98,7 +98,6 @@ form {
     }
 
     .input {
-        display: inline;
         text-align: center;
     }
     .form-group {
