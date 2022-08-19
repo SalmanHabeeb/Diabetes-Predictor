@@ -30,7 +30,7 @@ function display_preg() {
     var preg_label = document.getElementById("preg_label");
     var width = window.innerWidth;
     if (width <= 800) {
-        preg.style = "text-align: center; align-items: flex-start;";
+        preg.style = "align-items: flex-start;";
         preg_label.style.display = "flex";
     }
     else {
