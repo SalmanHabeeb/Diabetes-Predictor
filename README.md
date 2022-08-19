@@ -8,7 +8,7 @@ The app and the model used in this project are for educational purposes only and
 
 ## Deployment
 
-The model to test for diabetes is deployed at [Diabetes Predictor App](https://diabetes-predictor-using-pima.herokuapp.com/)
+The model to test for diabetes is deployed at [Diabetes Predictor App](https://diabetes-predictor-137.herokuapp.com/)
 
 ## License
 
