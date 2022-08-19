@@ -27,9 +27,15 @@ hide.addEventListener("click", display_preg);
 
 function display_preg() {
     var preg = document.getElementById("no_preg");
-    preg.style.display = "inline";
     var preg_label = document.getElementById("preg_label");
-    preg_label.style.display = "inline";
+    if (window.innerwidth <= 800px) {
+        preg.style.display = "flex";
+        preg_label.style.display = "flex";
+    }
+    else {
+        preg.style.display = "inline";
+        preg_label.style.display = "inline";
+    }
 }
 
 function hide_preg() {
