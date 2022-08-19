@@ -66,3 +66,34 @@ form {
     padding: 2px;
     vertical-align: bottom;
 }
+
+@media(max-width = 1024px) {
+    body {
+        align-items: center;
+    }
+    
+    form {
+        display: inline-block;
+        background-color: #e1fd41;
+        border: 10px solid #d9ff00;
+        border-style: groove;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height: auto;
+        padding: 20px;
+    }
+
+    .label {
+        display: inline;
+        text-align: center;
+    }
+
+    .input {
+        display: inline;
+        text-align: center;
+    }
+    .form-group {
+        display: inline;
+        padding: 10px;
+    }
+}
