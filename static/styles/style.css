@@ -67,7 +67,7 @@ form {
     vertical-align: bottom;
 }
 
-@media(max-width = 800px) {
+@media(max-width: 800px) {
     body {
         align-items: center;
     }
