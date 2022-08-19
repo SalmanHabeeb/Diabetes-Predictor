@@ -1,16 +1,26 @@
-# # # This file is part of Diabetes-Predictor.
+# # # The program is used to to predict diabetes occurance.
 
-# # # Diabetes-Predictor is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+# # # Copyright (C) 2022  Syed Salman Habeeb Quadri
 
-# # # Diabetes-Predictor is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+# # # This program is free software: you can redistribute it and/or modify
+# # # it under the terms of the GNU General Public License as published by
+# # # the Free Software Foundation, either version 3 of the License, or
+# # # (at your option) any later version.
 
-# # # You should have received a copy of the GNU General Public License along with Foobar. If not, see <https://www.gnu.org/licenses/>.
+# # # This program is distributed in the hope that it will be useful,
+# # # but WITHOUT ANY WARRANTY; without even the implied warranty of
+# # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# # # GNU General Public License for more details.
 
+# # # The GNU General Public License does not permit incorporating this program
+# # # into proprietary programs.
 
-import pandas as pd
+# # # You should have received a copy of the GNU General Public License
+# # # along with this program.  
+# # # If not, see [GNU General Public License](https://www.gnu.org/licenses/).
+
 import numpy as np
 import pickle
-from sklearn.linear_model import LogisticRegression
 from flask import Flask, render_template, request
 
 app=Flask(__name__, template_folder = "assets/templates")
@@ -22,26 +32,17 @@ def home():
 @app.route('/predict', methods = ['GET','POST'])
 def predict():
     
-    if request.method == 'POST':
-        print(request.form.get('var_1'))
-        print(request.form.get('var_2'))
-        print(request.form.get('var_3'))
-        print(request.form.get('var_4'))
-        print(request.form.get('var_5'))
-        print(request.form.get('var_6'))
-        
+    if request.method == 'POST':        
         try:
-            var_1 = float(request.form['var_1'])
-            var_2 = float(request.form['var_2'])
-            var_3 = float(request.form['var_3'])
-            var_4 = float(request.form['var_4'])
-            var_5 = float(request.form['var_5'])
-            var_6 = float(request.form['var_6'])
+            no_of_pregnancies = float(request.form['no_of_pregnancies'])
+            glucose_level = float(request.form['glucose_level'])
+            weight = float(request.form['weight'])
+            height = float(request.form['height'])
+            age = float(request.form['age'])
             
-            entries = [var_1, var_2, var_3, var_4, var_5, var_6]
-            scaling_df = pd.read_csv("assets/scaling_data.csv")
-            for i, entry in enumerate(entries):
-                entries[i] = (entry - scaling_df.iloc[0, i + 1])/scaling_df.iloc[1, i + 1]
+            bmi = weight/(height/100)**2
+            
+            entries = [no_of_pregnancies, glucose_level, bmi, age]
             entries = np.array(entries)
             entries = entries.reshape(1, -1)
             with open("assets/model.dat", "rb") as f:
@@ -53,7 +54,7 @@ def predict():
                 model_prediction = "Negative (-ve)"
 
         except ValueError:
-            return "Please Enter valid values"
+            return render_template('index.html', message = "Please enter numeric values only")
 
     return render_template('predict.html', prediction = model_prediction)
 

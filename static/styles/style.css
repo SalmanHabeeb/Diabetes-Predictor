@@ -1,0 +1,112 @@
+/*
+The program is used to to predict diabetes occurance.
+
+Copyright (C) 2022  Syed Salman Habeeb Quadri
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+The GNU General Public License does not permit incorporating this program
+into proprietary programs.
+
+You should have received a copy of the GNU General Public License
+along with this program.  
+If not, see [GNU General Public License](https://www.gnu.org/licenses/).
+*/
+body {
+    text-align: center;
+}
+
+
+form {
+    display: inline-block;
+    background-color: #e1fd41;
+    border: 10px solid #d9ff00;
+    border-style: groove;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: auto;
+    padding: 20px;
+    padding-top: 50px;
+    width: 40vw;
+    text-align: right;
+}
+
+.label {
+    text-align: flex-start;
+    align-content: flex-start;
+}
+
+.input {
+    align-self: flex-end;
+}
+
+.form-group {
+    padding: 10px;
+    padding-right: 80px;
+}
+
+.hide-group {
+    display: none;
+}
+
+.button {
+    padding-top: 25px;
+}
+
+.pred-button {
+    width: 120px;
+    padding: 2px;
+    vertical-align: bottom;
+}
+
+@media(max-width: 800px) {
+    body {
+        /*align-items: center;*/
+    }
+    
+    form {
+        display: inline-block;
+        background-color: #e1fd41;
+        border: 10px solid #d9ff00;
+        border-style: groove;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height: auto;
+        padding: 3vw;
+        width: 90vw;
+    }
+
+    .label {
+        display: flex;
+        align-items: flex-start;
+        font-size: 1.125rem;
+        /*margin-bottom: 0.5rem;*/
+    }
+
+    #radio-btn{
+        /*margin-right: 0.5rem;*/
+        min-height: 1.2rem;
+        min-width: 1.2rem;
+    }
+
+    .input {
+        text-align: center;
+        align-items: flex-start;
+    }
+
+    .form-group {
+        margin: 0 2.5rem 1.2rem 2rem;
+    }
+    
+    .hide-group{
+        margin: 0 2.5rem 1.2rem 2rem;
+    }
+}

@@ -1,53 +1,73 @@
+<!-- The program is used to to predict diabetes occurance.
+
+Copyright (C) 2022  Syed Salman Habeeb Quadri
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+The GNU General Public License does not permit incorporating this program
+into proprietary programs.
+
+You should have received a copy of the GNU General Public License
+along with this program.  
+If not, see [GNU General Public License](https://www.gnu.org/licenses/). -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Homepage</title>
+        <title>Diabetes Predictor App</title>
 
-        <link rel="stylesheet" href="./assets/css/style.css">
+        <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     </head>
-    <body>
-        <center><h1>Diabetes Prediction</h1></center>
-        <form autocomplete="off" method="POST" action="/predict">
+    <body bgcolor = "pink">
+        <center><h1>Diabetes Predictor</h1></center>
+        <form class = "form" autocomplete="off" method="POST" action="/predict">
             <div class="form-group">
-                <center><label for="var_1"><p class="font-weight-bold">No. of pregnancies</p></label></center>
-                <center><input type="text" name="var_1"></center>
+                <p align="left">Gender:
+                <label class="label" for="male">Male</label>
+                <input class="input" type="radio" name="gender" id="male">
+                <label class="label" for="female">Female</label>
+                <input class="input" type="radio" name="gender" id="female"></p>
             </div>
             <div class="form-group">
-                <center><label for="var_2"><p class="font-weight-bold">Glucose Level (in mg/dl)</p></label></center>
-                <center><input type="text" name="var_2"></center>
+                <label class="label" for="age">Age:</label>
+                <input class="input" type="text" name="age">
             </div>
             <div class="form-group">
-                <center><label for="var_3"><p class="font-weight-bold">Insulin</p></label></center>
-                <center><input type="text" name="var_3"></center>
+                <label class="label" for="weight">Weight (in kg):</label>
+                <input class="input" type="text" name="weight">
             </div>
             <div class="form-group">
-                <center><label for="var_4"><p class="font-weight-bold">BMI</p></label></center>
-                <center><input type="text" name="var_4"></center>
+                <label class="label" for="height">Height (in cm):</label>
+                <input class="input" type="text" name="height">
             </div>
             <div class="form-group">
-                <center><label for="var_5"><p class=" font-weight-bold">Diabetes Pedigree Function</p></label></center>
-                <center><input type="text" name="var_5"></center>
+                <label class="label" for="glucose_level">Glucose Level (in mg/dl):</label>
+                <input class="input" type="text" name="glucose_level">
             </div>
             <div class="form-group">
-                <center><label for="var_6"><p class=" font-weight-bold">Age</p></label></center>
-                <center><input type="text" name="var_6"></center>
+                <label class="label" for="no_of_pregnancies" id="preg_label">No. of pregnancies:</label>
+                <input class="input" type="text" name="no_of_pregnancies" id="no_preg" value="0">
             </div>
-            <center><button class = "pred-button" id = "predictor" type = "submit">
-                <h1>Predict</h1>
-            </button></center>
+            <div class="button">
+                <center><button class = "pred-button" id = "predictor" type = "submit">
+                    <b>Predict</b>
+                </button></center>
+            </div>
         </form>
 
-        <p><center>Test Result for Diabetes : {{prediction}}</center></p>
+        <h4><b>Test Result for Diabetes : {{prediction}}</b></h4>
+        <script src="{{url_for('static',filename='script.js')}}"></script>
     </body>
 </html>
-
-<!-- This file is part of Diabetes-Predictor.
-
-Diabetes-Predictor is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-Diabetes-Predictor is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with Foobar. If not, see <https://www.gnu.org/licenses/>. -->

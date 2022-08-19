@@ -1,5 +1,7 @@
 # Diabetes-Predictor
 
+> Copyright (C) 2022  Syed Salman Habeeb Quadri
+
 ## Disclaimer
 
 The app and the model used in this project are for educational purposes only and are not intended to provide medical advice. For any medical issues, consult a doctor.
