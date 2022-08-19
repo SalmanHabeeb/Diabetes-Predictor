@@ -28,7 +28,8 @@ hide.addEventListener("click", display_preg);
 function display_preg() {
     var preg = document.getElementById("no_preg");
     var preg_label = document.getElementById("preg_label");
-    if (window.innerwidth <= 800px) {
+    var width = window.innerwidth
+    if (width <= 800) {
         preg.style.display = "flex";
         preg_label.style.display = "flex";
     }
