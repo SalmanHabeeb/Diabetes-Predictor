@@ -69,7 +69,7 @@ form {
 
 @media(max-width: 800px) {
     body {
-        align-items: center;
+        /*align-items: center;*/
     }
     
     form {
