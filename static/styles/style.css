@@ -96,6 +96,7 @@ form {
         min-height: 1.2rem;
         min-width: 1.2rem;
         position: relative;
+        display: flex;
     }
 
     .input {
