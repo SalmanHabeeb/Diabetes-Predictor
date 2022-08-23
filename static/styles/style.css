@@ -95,6 +95,7 @@ form {
         /*margin-right: 0.5rem;*/
         min-height: 1.2rem;
         min-width: 1.2rem;
+        position: relative;
     }
 
     .input {
